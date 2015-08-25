@@ -33,6 +33,9 @@
         tableView.tableFooterView = footer;
         footer.tableView = tableView;
     }
+    
+    [tableView addObserver:footer forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    
     return footer;
 }
 
@@ -42,6 +45,7 @@
     }
 }
 
+//新版本此方法不需使用 由KVO模式取代
 - (void)observeTableView:(UITableView *)tableView{
     if (!self.isMoreFlag || self.status == Loading) {
         //没有更多数据了 或正在加载
@@ -60,6 +64,27 @@
     NSLog(@"%f",tableView.contentSize.height);
 }
 
+//监听contentOffset变化
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"contentOffset"]) {
+        if (!self.isMoreFlag || self.status == Loading) {
+            //没有更多数据了 或正在加载
+            return;
+        }
+        
+        CGFloat offsetY = self.tableView.contentOffset.y;
+        // 当最后一个cell完全显示在眼前时，contentOffset的y值
+        CGFloat judgeOffsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.height;
+        if ((offsetY >= judgeOffsetY - 20.0 && offsetY <= judgeOffsetY + 20.0) && self.tableView.contentSize.height > self.tableView.height) {
+            [self beginLoading];
+        }
+        NSLog(@"%f",offsetY);
+        NSLog(@"%f",judgeOffsetY);
+        NSLog(@"%f",self.tableView.height);
+        NSLog(@"%f",self.tableView.contentSize.height);
+    }
+}
+
 - (void)beginLoading{
     // 显示footer
     self.tableView.tableFooterView.hidden = NO;
@@ -73,6 +98,10 @@
 
 - (void)endLoading{
     self.status = UnLoading;
+}
+
+- (void)dealloc{
+    [self.tableView removeObserver:self forKeyPath:@"contentOffset" context:nil];
 }
 
 @end

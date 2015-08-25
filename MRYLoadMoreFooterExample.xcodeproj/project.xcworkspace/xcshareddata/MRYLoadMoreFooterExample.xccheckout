@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DF555EA9-BCDF-4FB7-A780-CB75D8B1FB55</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MRYLoadMoreFooterExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2BF1302CD20155A0E4367937E5C31AE13A0B0BA2</key>
+		<string>https://github.com/mryun11/MryLoadMoreFooter-master.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MRYLoadMoreFooterExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2BF1302CD20155A0E4367937E5C31AE13A0B0BA2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mryun11/MryLoadMoreFooter-master.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2BF1302CD20155A0E4367937E5C31AE13A0B0BA2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2BF1302CD20155A0E4367937E5C31AE13A0B0BA2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MryLoadMoreFooter-master</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -50,8 +50,9 @@
 }
 
 //监听滚动事件
+//新版本已无需再手动添加监听
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.footerView observeTableView:self.tableView];
+//    [self.footerView observeTableView:self.tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
