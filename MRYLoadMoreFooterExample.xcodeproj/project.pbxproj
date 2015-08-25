@@ -44,7 +44,7 @@
 		94F213DC1B30751E006CD05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94F213DD1B30751E006CD05B /* MRYLoadMoreFooterExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRYLoadMoreFooterExampleTests.m; sourceTree = "<group>"; };
 		94F213E71B30760F006CD05B /* MryLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryLoadMoreFooter.h; sourceTree = "<group>"; };
-		94F213E81B30760F006CD05B /* MryLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryLoadMoreFooter.m; sourceTree = "<group>"; };
+		94F213E81B30760F006CD05B /* MryLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryLoadMoreFooter.m; sourceTree = "<group>"; tabWidth = 5; };
 		94F213E91B30760F006CD05B /* MryLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MryLoadMoreFooter.xib; sourceTree = "<group>"; };
 		94F213ED1B307635006CD05B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		94F213EE1B307635006CD05B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
@@ -436,6 +436,7 @@
 				94F213E31B30751E006CD05B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94F213E41B30751E006CD05B /* Build configuration list for PBXNativeTarget "MRYLoadMoreFooterExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +445,7 @@
 				94F213E61B30751E006CD05B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
