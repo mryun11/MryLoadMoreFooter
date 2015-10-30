@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,6 +13,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-Mb-i6J">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJ9-kI-g8L">
@@ -19,6 +21,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在加载更多数据" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSq-kG-Zlq">
                             <rect key="frame" x="0.0" y="10" width="115" height="20"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="115" id="3oj-nm-fWZ"/>
                                 <constraint firstAttribute="height" constant="20" id="uKO-NJ-kQU"/>
@@ -29,8 +32,10 @@
                         </label>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UdS-GK-edP">
                             <rect key="frame" x="129" y="10" width="20" height="20"/>
+                            <animations/>
                         </activityIndicatorView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="UdS-GK-edP" secondAttribute="bottom" constant="10" id="2g4-zh-iCD"/>
@@ -42,8 +47,9 @@
                         <constraint firstItem="UdS-GK-edP" firstAttribute="top" secondItem="fJ9-kI-g8L" secondAttribute="top" constant="10" id="y7h-xz-cNh"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有更多了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLJ-FI-3tM">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有更多了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLJ-FI-3tM">
                     <rect key="frame" x="130" y="12" width="115" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="115" id="Loh-MQ-nPg"/>
                         <constraint firstAttribute="height" constant="20" id="Q8H-YC-RLI"/>
@@ -52,25 +58,45 @@
                     <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9K-x7-QsP">
+                    <rect key="frame" x="108" y="7" width="160" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="lnz-NJ-ney"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="加载更多">
+                        <color key="titleColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loadMoreBtnClick:" destination="cCd-VX-HG2" eventType="touchUpInside" id="6ZG-VT-bmM"/>
+                    </connections>
+                </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="fJ9-kI-g8L" firstAttribute="centerY" secondItem="ISp-Mb-i6J" secondAttribute="centerY" id="J4k-YZ-Oyi"/>
                 <constraint firstAttribute="bottom" secondItem="ISp-Mb-i6J" secondAttribute="bottom" id="JMW-La-5O6"/>
+                <constraint firstAttribute="bottom" secondItem="J9K-x7-QsP" secondAttribute="bottom" constant="7" id="LMo-5Q-mSg"/>
                 <constraint firstItem="fJ9-kI-g8L" firstAttribute="centerY" secondItem="yLJ-FI-3tM" secondAttribute="centerY" id="OlG-bl-sGX"/>
                 <constraint firstItem="ISp-Mb-i6J" firstAttribute="leading" secondItem="cCd-VX-HG2" secondAttribute="leading" id="W9n-rl-PQZ"/>
+                <constraint firstItem="J9K-x7-QsP" firstAttribute="centerX" secondItem="ISp-Mb-i6J" secondAttribute="centerX" id="XJV-2M-vqR"/>
                 <constraint firstItem="fJ9-kI-g8L" firstAttribute="centerX" secondItem="ISp-Mb-i6J" secondAttribute="centerX" id="YfN-kZ-iSm"/>
                 <constraint firstAttribute="trailing" secondItem="ISp-Mb-i6J" secondAttribute="trailing" id="a7m-jQ-Lng"/>
+                <constraint firstItem="J9K-x7-QsP" firstAttribute="top" secondItem="cCd-VX-HG2" secondAttribute="top" constant="7" id="g87-fE-Xf4"/>
                 <constraint firstItem="fJ9-kI-g8L" firstAttribute="centerX" secondItem="yLJ-FI-3tM" secondAttribute="centerX" id="n8e-UY-vCA"/>
                 <constraint firstItem="ISp-Mb-i6J" firstAttribute="top" secondItem="cCd-VX-HG2" secondAttribute="top" id="zIR-7F-luv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="activitier" destination="UdS-GK-edP" id="VU4-IX-bWp"/>
+                <outlet property="loadMoreBtn" destination="J9K-x7-QsP" id="XAI-Ka-lfE"/>
+                <outlet property="loadingView" destination="fJ9-kI-g8L" id="iaR-11-xOr"/>
                 <outlet property="noMoreLabel" destination="yLJ-FI-3tM" id="ZH3-im-xG5"/>
                 <outlet property="textLabel" destination="sSq-kG-Zlq" id="oV0-ti-sZD"/>
             </connections>
-            <point key="canvasLocation" x="450.5" y="99.5"/>
+            <point key="canvasLocation" x="450.5" y="99"/>
         </view>
     </objects>
 </document>

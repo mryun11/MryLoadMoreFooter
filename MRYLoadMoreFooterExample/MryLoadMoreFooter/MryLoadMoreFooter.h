@@ -6,11 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+Extension.h"
 
 typedef enum {
     UnLoading = 0,
-    Loading
+    Loading,
+    FailLoad
 }Status;
 
 @protocol MryLoadMoreFooterDelegate <NSObject>
@@ -34,5 +34,7 @@ typedef enum {
 - (void)observeTableView:(UITableView *)tableView;
 
 - (void)endLoading;
+
+- (void)failLoad;
 
 @end

@@ -41,12 +41,12 @@
 
 - (void)initData{
     self.rowCount += 20;
-    [self.tableView reloadData];
-    [self.footerView endLoading];
-    if (self.rowCount >= 50) {
-        //没有更多数据了
-        self.tableView.tableFooterView = nil;
-    }
+//    [self.tableView reloadData];
+    [self.footerView failLoad];
+//    if (self.rowCount >= 50) {
+//        //没有更多数据了
+//        self.tableView.tableFooterView = nil;
+//    }
 }
 
 //监听滚动事件
