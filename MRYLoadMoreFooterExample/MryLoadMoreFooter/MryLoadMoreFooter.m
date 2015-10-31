@@ -9,8 +9,6 @@
 
 @interface MryLoadMoreFooter()
 
-@property (nonatomic,weak) UITableView *tableView;
-
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activitier;
@@ -38,12 +36,16 @@
         footer.loadMoreBtn.layer.borderColor = [UIColor colorWithRed:180.f/255 green:180.f/255 blue:180.f/255 alpha:1].CGColor;
         footer.loadMoreBtn.layer.borderWidth = 0.5f;
         tableView.tableFooterView = footer;
-        footer.tableView = tableView;
     }
     
-    [tableView addObserver:footer forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-    
     return footer;
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview{
+    [super willMoveToSuperview:newSuperview];
+    
+    [self.superview removeObserver:self forKeyPath:@"contentOffset"];
+    [newSuperview addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)loadMoreData{
@@ -58,7 +60,7 @@
 //        //没有更多数据了 或正在加载
 //        return;
 //    }
-//    
+//
 //    CGFloat offsetY = tableView.contentOffset.y;
 //    // 当最后一个cell完全显示在眼前时，contentOffset的y值
 //    CGFloat judgeOffsetY = tableView.contentSize.height + tableView.contentInset.bottom - tableView.frame.size.height;
@@ -78,23 +80,25 @@
             //没有更多数据了 或正在加载
             return;
         }
-        
-        CGFloat offsetY = self.tableView.contentOffset.y;
+        UITableView *tableView = (UITableView *)self.superview;
+        CGFloat offsetY = tableView.contentOffset.y;
         // 当最后一个cell完全显示在眼前时，contentOffset的y值
-        CGFloat judgeOffsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.frame.size.height;
-        if ((offsetY >= judgeOffsetY - 20.0 && offsetY <= judgeOffsetY + 20.0) && self.tableView.contentSize.height > self.tableView.frame.size.height) {
+        CGFloat judgeOffsetY = tableView.contentSize.height + tableView.contentInset.bottom - tableView.frame.size.height;
+        if ((offsetY >= judgeOffsetY - 20.0 && offsetY <= judgeOffsetY + 20.0) && tableView.contentSize.height > tableView.frame.size.height) {
             [self beginLoading];
         }
-        NSLog(@"%f",offsetY);
-        NSLog(@"%f",judgeOffsetY);
-        NSLog(@"%f",self.tableView.frame.size.height);
-        NSLog(@"%f",self.tableView.contentSize.height);
+        //        NSLog(@"%f",offsetY);
+        //        NSLog(@"%f",judgeOffsetY);
+        //        NSLog(@"%f",self.tableView.frame.size.height);
+        //        NSLog(@"%f",self.tableView.contentSize.height);
     }
 }
 
 - (void)beginLoading{
+    
+    UITableView *tableView = (UITableView *)self.superview;
     // 显示footer
-    self.tableView.tableFooterView.hidden = NO;
+    tableView.tableFooterView.hidden = NO;
     
     self.status = Loading;
     self.loadMoreBtn.hidden = YES;
@@ -115,9 +119,9 @@
     self.loadingView.hidden = YES;
 }
 
-- (void)dealloc{
-    [self.tableView removeObserver:self forKeyPath:@"contentOffset" context:nil];
-}
+//- (void)dealloc{
+//    [self.superview removeObserver:self forKeyPath:@"contentOffset" context:nil];
+//}
 
 - (IBAction)loadMoreBtnClick:(UIButton *)sender {
     [self beginLoading];

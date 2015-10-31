@@ -31,7 +31,7 @@ typedef enum {
 
 + (instancetype)setupLoadMoreForTableView:(UITableView *)tableView;
 
-- (void)observeTableView:(UITableView *)tableView;
+//- (void)observeTableView:(UITableView *)tableView;
 
 - (void)endLoading;
 
